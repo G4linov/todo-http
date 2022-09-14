@@ -1,13 +1,15 @@
 package main
 
 import (
-	"handler"
 	"log"
-	"todo"
+
+	"github.com/G4linov/todo-http"
+	"github.com/G4linov/todo-http/pkg/handler"
 )
 
 func main() {
 	handlers := new(handler.Handler)
+
 	srv := new(todo.Server)
 	if err := srv.Run("8000", handlers.InitRoutes()); err != nil {
 		log.Fatalf(err.error)
